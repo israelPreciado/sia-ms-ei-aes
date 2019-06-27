@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.19.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.sia</groupId>
+	<artifactId>sia-ms-ei-aes</artifactId>
+	<version>1.0.0</version>
+	<packaging>war</packaging>
+	<name>sia-ms-ei-aes</name>
+	<description>API Rest for SIA multi sites</description>
+
+	<properties>
+		<appengine.maven.plugin.version>1.3.2</appengine.maven.plugin.version>
+		<java.version>1.8</java.version>
+		
+		<!-- [Start - Connect to Cloud SQL] -->
+		<INSTANCE_CONNECTION_NAME>sia-ms:us-central1:siams</INSTANCE_CONNECTION_NAME>
+		<user>root</user>
+		<password>e$tr4t3giAm$39</password>
+		<database>sia_ms</database>
+		<!-- [End - Connect to Cloud SQL] -->
+	</properties>
+
+	<dependencies>		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-tomcat</artifactId> 
+			<scope>provided</scope> </dependency> -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>8.0</version>
+            <scope>provided</scope>
+        </dependency>-->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20141113</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>appengine-maven-plugin</artifactId>
+				<version>${appengine.maven.plugin.version}</version>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
